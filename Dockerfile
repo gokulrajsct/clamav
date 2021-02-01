@@ -1,4 +1,4 @@
-FROM openshift/base-centos7
+FROM registry.redhat.io/rhel7/rhel
 
 
 RUN yum -y install epel-release
