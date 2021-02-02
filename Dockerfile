@@ -10,6 +10,7 @@ COPY config/freshclam.conf /etc/freshclam.conf
 
 RUN chgrp -R 0 /var/lib/clamav/
 RUN chmod -R ug+rwx /var/lib/clamav/
+RUN mkdir -P /var/log/clamav
 
 RUN wget -t 5 -T 99999 -O /opt/app-root/src/main.cvd http://database.clamav.net/main.cvd && \
    wget -t 5 -T 99999 -O /opt/app-root/src/daily.cvd http://database.clamav.net/daily.cvd && \
