@@ -8,13 +8,18 @@ RUN yum install -y clamav-server clamav-data clamav-update clamav-filesystem cla
 COPY config/clamd.conf /etc/clamd.conf
 COPY config/freshclam.conf /etc/freshclam.conf
 
-RUN chgrp -R 0 /opt/app-root/src
-RUN chmod -R ug+rwx /opt/app-root/src
+RUN chgrp -R 0 /var/lib/clamav/
+RUN chmod -R ug+rwx /var/lib/clamav/
 
 RUN wget -t 5 -T 99999 -O /opt/app-root/src/main.cvd http://database.clamav.net/main.cvd && \
    wget -t 5 -T 99999 -O /opt/app-root/src/daily.cvd http://database.clamav.net/daily.cvd && \
    wget -t 5 -T 99999 -O /opt/app-root/src/bytecode.cvd http://database.clamav.net/bytecode.cvd && \
-   chgrp -R 0 /opt/app-root/src/*.cvd
+   chgrp -R 0 /var/lib/clamav/*.cvd
+RUN chgrp -R 0 /var/log/clamav && \
+   chmod -R g+w /var/log/clamav && \
+   chgrp -R 0 /var/lib/clamav && \
+   chmod -R g+w /var/lib/clamav
+   
 
 USER 1001
 
