@@ -17,7 +17,7 @@ RUN wget -t 5 -T 99999 -O /var/lib/clamav/main.cvd http://database.clamav.net/ma
    wget -t 5 -T 99999 -O /var/lib/clamav/bytecode.cvd http://database.clamav.net/bytecode.cvd && \
    chgrp -R 0 /var/lib/clamav/*.cvd
    
-RUN chmod -R g+wrx /dev/stdout && chgrp -R 0 /dev/stdout
+#RUN chmod -R g+wrx /dev/stdout && chgrp -R 0 /dev/stdout
    #chmod -R g=u /var/log/clamav && chmod -R g=u /var/lib/clamav && \
  #  chmod -R g+wrx /var/log/clamav
 
