@@ -20,7 +20,7 @@ RUN    set -x \
     && curl -O http://database.clamav.net/daily.cvd \
     && curl -O http://database.clamav.net/bytecode.cvd \
     && curl -O http://database.clamav.net/safebrowsing.cvd \
-    && chown -R clamavupdate:clamavupdate /var/lib/clamav/*.cvd
+    && chown -R clamupdate:clamupdate /var/lib/clamav/*.cvd
 
 
 #RUN wget -t 5 -T 99999 -O /var/lib/clamav/main.cvd http://database.clamav.net/main.cvd && \
