@@ -1,7 +1,7 @@
   
 FROM registry.redhat.io/ubi8/ubi
 
-RUN  rpm --import http://download.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7
+RUN  rpm --import http://download.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-8
 RUN  yum -y install epel-release
 RUN  yum clean all
 RUN  yum install -y clamav-server clamav-data clamav-update clamav-filesystem clamav clamav-scanner-systemd clamav-devel clamav-lib clamav-server-systemd
