@@ -1,6 +1,7 @@
-FROM openshift/base-centos7
+  
+FROM registry.redhat.io/rhel7/rhel
 
-
+RUN yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 RUN yum -y install epel-release
 RUN yum clean all
 RUN yum install -y clamav-server clamav-data clamav-update clamav-filesystem clamav clamav-scanner-systemd clamav-devel clamav-lib clamav-server-systemd
@@ -15,7 +16,7 @@ RUN chmod -R ug+rwx /var/lib/clamav
 RUN wget -t 5 -T 99999 -O /var/lib/clamav/main.cvd http://database.clamav.net/main.cvd && \
    wget -t 5 -T 99999 -O /var/lib/clamav/daily.cvd http://database.clamav.net/daily.cvd && \
    wget -t 5 -T 99999 -O /var/lib/clamav/bytecode.cvd http://database.clamav.net/bytecode.cvd && \
-   chgrp -R 0 /var/lib/clamav/*.cvd
+   chown -R clamavupdate:clamavupdate /var/lib/clamav/*.cvd
    
 #RUN chmod -R g+wrx /dev/stdout && chgrp -R 0 /dev/stdout
    #chmod -R g=u /var/log/clamav && chmod -R g=u /var/lib/clamav && \
