@@ -1,10 +1,10 @@
   
-FROM registry.redhat.io/rhel7/rhel
+FROM registry.redhat.io/ubi8/ubi
 
 RUN  rpm --import http://download.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7
-RUN yum -y install epel-release
-RUN yum clean all
-RUN yum install -y clamav-server clamav-data clamav-update clamav-filesystem clamav clamav-scanner-systemd clamav-devel clamav-lib clamav-server-systemd
+RUN  yum -y install epel-release
+RUN  yum clean all
+RUN  yum install -y clamav-server clamav-data clamav-update clamav-filesystem clamav clamav-scanner-systemd clamav-devel clamav-lib clamav-server-systemd
 
 COPY config/clamd.conf /etc/clamd.conf
 COPY config/freshclam.conf /etc/freshclam.conf
