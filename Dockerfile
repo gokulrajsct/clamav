@@ -1,5 +1,5 @@
   
-FROM registry.redhat.io/ubi8/ubi
+FROM registry.redhat.io/ubi8/ubi-minimal
 
 #RUN  rpm --import http://download.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-8
 RUN yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
